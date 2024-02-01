@@ -1,0 +1,35 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int sum = 0;
+        bool continueInput = true;
+
+        while (continueInput)
+        {
+            Console.WriteLine("Введите число (или 'q' для выхода):");
+            string input = Console.ReadLine();
+
+            if (input.ToLower() == "q")
+            {
+                continueInput = false;
+            }
+            else
+            {
+                int number;
+                if (int.TryParse(input, out number))
+                {
+                    sum += number;
+                }
+                else
+                {
+                    Console.WriteLine("Некорректный ввод. Пожалуйста, введите число или 'q' для выхода.");
+                }
+            }
+        }
+
+        Console.WriteLine($"Сумма введенных чисел: {sum}");
+    }
+}
